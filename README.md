@@ -14,7 +14,7 @@ WEAS BÁSICAS:
 
 ----
 
-Cosas probadas para que el programa base funcionara:
+Cosas que pueden solucionar errores futuros:
 
   -Actualizar Driver USB
   
