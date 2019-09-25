@@ -1,0 +1,25 @@
+/*
+
+Algunos pedazos de código que deberíamos probar cuando podamos hacer funcionar el IDE 
+
+
+*/
+
+//	  //----------
+//	  // (1) Blink LED2
+//
+//	  	HAL_Delay(250); //delay tonto de x [ms]
+//	  	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);//toggle(port A, pin 5), green led in development board
+//	  //-----------------
+
+
+
+//	  //----------
+//	  // (2) LED2 with button as simple pushbutton
+//
+//		if( HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) ) //read PORTC.pin13, the blue button in the development board
+//			HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1); //PORTA.pin5 = 1
+//		else
+//			HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 0); //PORTA.pin5 = 0
+//
+//	  //-----------------
