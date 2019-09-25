@@ -20,7 +20,7 @@ Para que el programa base funcionara:
   
   -Actualizar Driver Firmware
   
-  https://www.st.com/content/st_com/en/search.html#q=st-link-t=tools-page=1
+  Ambos están adjuntos en "Software Previo"
   
 -----  
   
