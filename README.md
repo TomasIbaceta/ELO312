@@ -24,3 +24,6 @@ Cosas que pueden solucionar errores futuros:
   
 -----  
   
+TRUCAZOS:
+
+usar ctrl + shift + "/" te deja comentar/descomentar de una un bloque de codigo
