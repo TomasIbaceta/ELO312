@@ -1,8 +1,5 @@
 /*
-
 Algunos pedazos de código que deberíamos probar cuando podamos hacer funcionar el IDE 
-
-
 */
 
 //	  //----------
@@ -15,11 +12,21 @@ Algunos pedazos de código que deberíamos probar cuando podamos hacer funcionar
 
 
 //	  //----------
-//	  // (2) LED2 with button as simple pushbutton
+//	  // (2) LED2 with B1 as a pushbutton
 //
-//		if( HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) ) //read PORTC.pin13, the blue button in the development board
+//		if ( HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) ) //read PORTC.pin13, the blue button in the development board
 //			HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1); //PORTA.pin5 = 1
 //		else
 //			HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 0); //PORTA.pin5 = 0
+//
+//	  //-----------------
+
+//	  //----------
+//	  // (3) LED2 with B1 as a toggle
+//
+//	  if ( HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) )	{
+//		   HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+//	  	 HAL_Delay(100);
+//	  	 }
 //
 //	  //-----------------
