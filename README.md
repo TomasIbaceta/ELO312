@@ -3,6 +3,7 @@ Para las cosas de estructura 2019-2 paralelo 4
 
 ----
 WEAS BÁSICAS:
+
   -Placa de desarrollo: STM32 NUCLEO || NUCLEO64 || NUCLEO_64
   
   -Microcontrolador: STM32f411
