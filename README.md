@@ -13,3 +13,14 @@ WEAS BÁSICAS:
   -code configurator: STM32CubeMX
 
 ----
+
+Para que el programa base funcionara:
+
+  -Actualizar Driver USB
+  
+  -Actualizar Driver Firmware
+  
+  https://www.st.com/content/st_com/en/search.html#q=st-link-t=tools-page=1
+  
+-----  
+  
