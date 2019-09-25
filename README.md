@@ -14,11 +14,11 @@ WEAS BÁSICAS:
 
 ----
 
-Para que el programa base funcionara:
+Cosas probadas para que el programa base funcionara:
 
   -Actualizar Driver USB
   
-  -Actualizar Driver Firmware
+  -Actualizar Driver Firmware /*aún no probado, necesita conectar la tarjeta*/
   
   Ambos están adjuntos en "Software Previo"
   
