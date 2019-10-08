@@ -47,6 +47,36 @@ unsigned int number_to_find = 15;
 **
 **===========================================================================
 */
+
+//------------------------
+
+/*
+
+void search(unsigned int *array_to_search, unsigned int number_to_check){
+  int i = 0;
+  char flag = 0;
+
+  while (i<NUMBERSIZE){
+	if (*(array_to_search+i) == number_to_find){
+		printf("found match on index %d\n", i);
+		flag = 1;
+	}//end if
+	i++;
+  } //end while
+  if (flag == 0)
+	  printf ("match not found");
+}
+
+int main(void)
+{
+  search(numbers, number_to_find);
+  return 0;
+}
+
+*/
+
+//-----------------
+
 int main(void)
 {
   int i = 0;
