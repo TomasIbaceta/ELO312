@@ -30,15 +30,43 @@ SOFTWARE.
 /* Includes */
 #include "stm32l4xx.h"
 #include <stdio.h>
-
+#include "functions.h"
 /* Private macro */
 #define NUMBERSIZE 20
 /* Private variables */
 
-unsigned int numbers[NUMBERSIZE] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12, 13, 14, 15 ,16, 17, 18, 19}; ////array de tamaño numbersize que va del subindice 0 a (numbersize -1)
-unsigned int number_to_find = 15;
+unsigned int numbers[NUMBERSIZE] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12, 13, 14, 15 ,16, 17, 18, 10}; ////array de tamaño numbersize que va del subindice 0 a (numbersize -1)
+unsigned int number_to_find = 10;
 /* Private function prototypes */
 /* Private functions */
+
+// --------- </PARA USAR EL DWT > -----------
+
+volatile unsigned int *DWT_CYCCNT  ;
+volatile unsigned int *DWT_CONTROL ;
+volatile unsigned int *SCB_DEMCR   ;
+
+void reset_timer(){
+    DWT_CYCCNT   = (int *)0xE0001004; //address of the register
+    DWT_CONTROL  = (int *)0xE0001000; //address of the register
+    SCB_DEMCR    = (int *)0xE000EDFC; //address of the register
+    *SCB_DEMCR   = *SCB_DEMCR | 0x01000000;
+    *DWT_CYCCNT  = 0; // reset the counter
+    *DWT_CONTROL = 0;
+}
+
+void start_timer(){
+    *DWT_CONTROL = *DWT_CONTROL | 1 ; // enable the counter
+}
+
+void stop_timer(){
+	*DWT_CONTROL = *DWT_CONTROL & 0xFFFFFFFE ; // disable the counter by clearing the enable bit
+}
+
+unsigned int getCycles(){
+    return *DWT_CYCCNT;
+}
+// --------- </PARA USAR EL DWT > -----------
 
 /**
 **===========================================================================
@@ -48,9 +76,10 @@ unsigned int number_to_find = 15;
 **===========================================================================
 */
 
-//------------------------
 
-/*
+
+
+
 
 void search(unsigned int *array_to_search, unsigned int number_to_check){
   int i = 0;
@@ -67,29 +96,49 @@ void search(unsigned int *array_to_search, unsigned int number_to_check){
 	  printf ("match not found");
 }
 
-int main(void)
-{
-  search(numbers, number_to_find);
-  return 0;
-}
-
-*/
+//int main(void)
+//{
+//  reset_timer();
+//  start_timer();
+//
+//  search(numbers, number_to_find);
+//
+//  stop_timer();
+//  printf ("el programa se demoro %u ciclos de reloj\n", getCycles());
+//
+//  return 0;
+//}
 
 //-----------------
-
+/*
 int main(void)
 {
+  reset_timer();
+  start_timer();
   int i = 0;
   char flag = 0;
 
-  while (i<NUMBERSIZE){
-	if (numbers[i] == number_to_find){
-		printf("found match on index %d", i);
+  stop_timer();
+  printf("antes del while vamos en %u ciclos de reloj\n", getCycles());
+  start_timer();
+
+  while (i < NUMBERSIZE){
+
+	  if (numbers[i] == number_to_find){
+		  printf("found match on index %d \n", i);
 		flag = 1;
 	}//end if
+	stop_timer();
+	printf("con i = %d, tenemos clock = %u \n", i, getCycles());
+	start_timer();
 	i++;
   } //end while
+
   if (flag == 0)
-	  printf ("match not found");
+	  printf ("match not found\n");
+
+  stop_timer();
+  printf ("el programa se demoro %u ciclos de reloj\n", getCycles());
   return 0;
-}
+}//end main
+*/
