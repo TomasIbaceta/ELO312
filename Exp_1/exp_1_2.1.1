@@ -35,7 +35,7 @@ SOFTWARE.
 #define NUMBERSIZE 20
 /* Private variables */
 
-unsigned int numbers[NUMBERSIZE] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12, 13, 14, 15 ,16, 17, 18, 19};
+unsigned int numbers[NUMBERSIZE] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12, 13, 14, 15 ,16, 17, 18, 19}; ////array de tamaño numbersize que va del subindice 0 a (numbersize -1)
 unsigned int number_to_find = 15;
 /* Private function prototypes */
 /* Private functions */
@@ -52,7 +52,7 @@ int main(void)
   int i = 0;
   char flag = 0;
 
-  while (i<=NUMBERSIZE){
+  while (i<NUMBERSIZE){
 	if (numbers[i] == number_to_find){
 		printf("found match on index %d", i);
 		flag = 1;
