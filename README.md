@@ -28,3 +28,12 @@ Cosas que pueden solucionar errores futuros:
 TRUCAZOS:
 
 usar ctrl + shift + "/" te deja comentar/descomentar de una un bloque de codigo
+
+-----
+
+CODIGO A EDITAR EN EL SYSCALL
+int32_t i;
+  for (i=0 ; i<len ; i++)
+    ITM_SendChar(*ptr++);
+  errno = ENOSYS;
+  return len;
