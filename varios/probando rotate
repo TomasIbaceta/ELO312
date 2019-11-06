@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+#define MASK_8_BIT_0 0b00000001
+#define MASK_8_BIT_1 0b00000010
+#define MASK_8_BIT_2 0b00000100
+#define MASK_8_BIT_3 0b00001000
+#define MASK_8_BIT_4 0b00010000
+#define MASK_8_BIT_5 0b00100000
+#define MASK_8_BIT_6 0b01000000
+#define MASK_8_BIT_7 0b10000000
+
+
+unsigned char l_circular_rotate(unsigned char rotee){
+	if ( (rotee & 0b10000000) == 0)
+		rotee = (rotee << 1);
+	else rotee = ((rotee << 1) | 0b00000001);
+
+	return rotee;
+	}
+
+int main()
+{
+    unsigned char hola = 0b00000001;
+    unsigned char i;
+
+    for (i=0; i<50 ; i++){
+        if ( (hola & 0b10000000) == 0){
+            hola = hola<<1;
+            printf("%u \n", hola);
+        }
+            else{
+                hola = 0b00000001;
+                printf("%u \n", hola);
+            } //end else
+    } //end for
+    for (i=0; i<50 ; i++){
+
+        if (hola & MASK_8_BIT_7)
+                printf("1");
+            else
+                printf("0");
+
+        if (hola & MASK_8_BIT_6)
+                printf("1");
+            else
+                printf("0");
+
+        if (hola & MASK_8_BIT_5)
+                printf("1");
+            else
+                printf("0");
+
+        if (hola & MASK_8_BIT_4)
+                printf("1");
+            else
+                printf("0");
+
+        if (hola & MASK_8_BIT_3)
+                printf("1");
+            else
+                printf("0");
+
+        if (hola & MASK_8_BIT_2)
+                printf("1");
+            else
+                printf("0");
+
+        if (hola & MASK_8_BIT_1)
+                printf("1");
+            else
+                printf("0");
+
+        if (hola & MASK_8_BIT_0)
+                printf("1");
+            else
+                printf("0");
+
+        printf("\n");
+        hola = l_circular_rotate(hola);
+    } //fin for
+
+    getchar();
+    return 0;
+}
